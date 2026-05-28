@@ -1,0 +1,9 @@
+{% extends 'base.html' %} 
+{% block content %} 
+  <p>Formulário de produto</p> 
+  <form method="POST"> 
+    {% csrf_token %} 
+    {{ form.as_p }} 
+    <button type="submit">Salvar</button> 
+  </form> 
+{% endblock %} 
