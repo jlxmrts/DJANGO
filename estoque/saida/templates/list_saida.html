@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<p>Saídas</p>
+<a class="button is-primary"
+href="{% url 'saida:new_saida' %}">
+    Novo
+</a>
+
+<table class="table">
+
+<thead>
+<tr>
+    <th>ID</th>
+    <th>Produto</th>
+    <th>Quantidade</th>
+    <th></th>
+</tr>
+</thead>
+
+<tbody>
+
+{% for saida in saidas %}
+<tr>
+    <td>{{ saida.id }}</td>
+    <td>{{ saida.produto }}</td>
+    <td>{{ saida.quantidade }}</td>
+
+    <td>
+        <a class="button is-primary"
+        href="{% url 'saida:update_saida' saida.id %}">
+            Alterar
+        </a>
+    </td>
+
+    <td>
+        <a class="button is-danger"
+        href="{% url 'saida:delete_saida' saida.id %}">
+            Excluir
+        </a>
+    </td>
+</tr>
+{% endfor %}
+
+</tbody>
+
+</table>
+
+{% endblock %}

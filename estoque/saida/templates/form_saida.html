@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<p>Nova Saída</p>
+{% if erro %}
+<div class="notification is-danger">
+    {{ erro }}
+</div>
+{% endif %}
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="button is-primary">
+        Salvar
+    </button>
+</form>
+{% endblock %}
